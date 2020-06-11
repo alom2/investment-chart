@@ -1,0 +1,1 @@
+export { investmentsReducer } from './reducer'
