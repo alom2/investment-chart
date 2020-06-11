@@ -1,3 +1,3 @@
 import React from 'react'
 
-export const Card = () => <div />
+export const Card = ({ children }) => <div>{children}</div>

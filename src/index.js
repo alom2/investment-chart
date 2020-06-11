@@ -1,11 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
 import { InvestmentsChart } from './features/Investments/views'
+import { Global, css } from '@emotion/core'
+
+const globalStyles = css({
+  body: {
+    margin: 0
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <InvestmentsChart />
+    <>
+      <Global styles={globalStyles} />
+      <InvestmentsChart />
+    </>
   </React.StrictMode>,
   document.getElementById('root')
 )
