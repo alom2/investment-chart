@@ -1,3 +1,3 @@
-export { investmentsReducer } from './reducer'
+export * from './reducer'
 export { investmentsSaga } from './saga'
 export * from './actions'

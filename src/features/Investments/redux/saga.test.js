@@ -1,6 +1,7 @@
 import * as InvestmentsTypes from './types'
 import * as Saga from './saga'
 import { call, fork, put } from 'redux-saga/effects'
+import moment from 'moment'
 import { fetchInvestmentsDataFromGist } from '../services/investmentDataService'
 import { setInvestmentsData } from './actions'
 
@@ -12,11 +13,16 @@ describe('InvestmentsSaga', () => {
     let expectedStep = call(fetchInvestmentsDataFromGist)
     expect(result.value).toStrictEqual(expectedStep)
 
-    const data = ['test']
+    const data = [[1602320900000, 9000]]
     result = saga.next(data)
-    expectedStep = put(setInvestmentsData(data))
+    
+    const expectedResult = { 
+      dates: ['10/10/2020'],
+      values: ['9000.00']
+    }
+    expectedStep = put(setInvestmentsData(expectedResult))
+  
     expect(result.value).toStrictEqual(expectedStep)
-
     expect(saga.next().done).toBe(true)
   })
 

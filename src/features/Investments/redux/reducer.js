@@ -1,7 +1,10 @@
 import * as InvestmentsTypes from './types'
 
 export const initialState = {
-  data: []
+  chartData: {
+    dates: [],
+    values: []
+  }
 }
 
 export const investmentsReducer = (state = initialState, action) => {
@@ -9,7 +12,7 @@ export const investmentsReducer = (state = initialState, action) => {
     case InvestmentsTypes.SET_INVESTMENTS_DATA:
       return {
         ...state,
-        data: action.payload
+        chartData: action.payload
       }
     default: return state
   }

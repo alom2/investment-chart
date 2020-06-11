@@ -8,9 +8,9 @@ describe('InvestmentsReducer' , () => {
   })
 
   it('setInvestmentsData', () => {
-    const data = ['teste']
+    const data = 'teste'
     const action = InvestmentsActions.setInvestmentsData(data)
     const state = investmentsReducer(initialState, action)
-    expect(state.data).toBe(data)
+    expect(state.chartData).toBe(data)
   })
 })

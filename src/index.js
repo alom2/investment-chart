@@ -4,9 +4,17 @@ import { Global, css } from '@emotion/core'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import { InvestmentsChart } from './features/Investments/views'
 import { mainReducer, mainSaga } from './redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import moment from 'moment'
+import 'moment/locale/pt-br'
+import numeral from 'numeral'
+import 'numeral/locales/pt-br'
+
+import { InvestmentsChart } from './features/Investments/views'
+
+moment.locale('pt-br')
+numeral.locale('pt-br')
 
 const globalStyles = css({
   body: {

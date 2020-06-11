@@ -7,7 +7,7 @@
         "plugin:react/recommended",
         "standard"
     ],
-    "ignorePatterns": ["*.test.js"],
+    "ignorePatterns": ["*.test.js", "setupTests.js"],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
