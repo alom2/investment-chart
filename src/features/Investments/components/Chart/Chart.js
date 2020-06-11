@@ -8,10 +8,11 @@ export const formatTooltipLabel = (item) => {
 }
 
 export const formatYAxisLabel = (value) => {
-  if (value >= 1000) {
-    return numeral(value).format('$ 0a')
+  const numericValue = Number(value)
+  if (numericValue >= 1000) {
+    return numeral(numericValue).format('$ 0a')
   }
-  return value
+  return numericValue
 }
 
 export const options = {

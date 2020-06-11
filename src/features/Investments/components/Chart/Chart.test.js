@@ -34,12 +34,12 @@ describe('Chart', () => {
       const store = mockStore({
         investments: { charData: null }
       })
-      const { queryByTestId } = render(
+      const { queryByText } = render(
         <Provider store={store}>
           <Chart />
         </Provider>
       );
-      expect(queryByTestId('Line')).toBeNull()
+      expect(queryByText('Line')).toBeNull()
     })
 
     it('should render when it has value', () => {

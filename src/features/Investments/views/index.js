@@ -1,1 +1,1 @@
-export * from './InvestmentsChart'
+export * from './investmentsChart'

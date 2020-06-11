@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from '@emotion/styled'
-import { fetchInvestmentsData } from '../redux'
-import { Card } from '../../../sharedComponents'
-import { Chart } from '../components'
+import { fetchInvestmentsData } from '../../redux'
+import { Card } from '../../../../sharedComponents'
+import { Chart } from '../../components'
 
 const InvestmentsCard = styled(Card)({
   display: 'flex',
