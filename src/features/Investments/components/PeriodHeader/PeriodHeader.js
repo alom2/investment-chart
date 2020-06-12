@@ -3,6 +3,8 @@ import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 import { PeriodSelector } from '../PeriodSelector'
+import { useSelector } from 'react-redux'
+import { PERIODS_IN_PAST_MONTHS } from '../../constants/chart'
 
 const Container = styled.header({
   backgroundColor: '#eff2f5',
@@ -17,14 +19,18 @@ const Container = styled.header({
 })
 
 const Period = styled.strong({
-  fontWeight: 600
+  fontWeight: 600,
+  color: '#159ce4'
 })
 
-export const PeriodHeader = ({ period }) => (
-  <Container>
-    <div>
-      <FontAwesomeIcon icon={faCalendarAlt}/> Você está vendo o período <Period>{period}</Period>
-    </div>
-    <PeriodSelector />
-  </Container>
-)
+export const PeriodHeader = () => {
+  const monthsInPastIndex = useSelector(state => state.investments.monthsInPastIndex)
+  return (
+    <Container>
+      <div>
+        <FontAwesomeIcon icon={faCalendarAlt}/> Você está vendo o período <Period>{PERIODS_IN_PAST_MONTHS[monthsInPastIndex].label}</Period>
+      </div>
+      <PeriodSelector />
+    </Container>
+  )
+}

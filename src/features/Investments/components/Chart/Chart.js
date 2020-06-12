@@ -2,6 +2,7 @@ import React from 'react'
 import { Line } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
 import numeral from 'numeral'
+import moment from 'moment'
 
 export const formatTooltipLabel = (item) => {
   return numeral(parseFloat(item.value)).format('$ 0,0.00')
@@ -15,17 +16,30 @@ export const formatYAxisLabel = (value) => {
   return numericValue
 }
 
+export const formatXAxisLabel = (value) => {
+  return moment(value).format('DD/MM/YYYY')
+}
+
+export const formatTooltipTitle = (item) => {
+  const numericTitle = Number(item[0].label)
+  return moment(numericTitle).format('DD/MM/YYYY')
+}
+
 export const options = {
   legend: { display: false },
   elements: {
     line: { tension: 0 }
   },
   tooltips: {
-    callbacks: { label: formatTooltipLabel }
+    callbacks: {
+      label: formatTooltipLabel,
+      title: formatTooltipTitle
+    }
   },
   scales: {
     xAxes: [{
-      gridLines: { display: false }
+      gridLines: { display: false },
+      ticks: { callback: formatXAxisLabel }
     }],
     yAxes: [{
       ticks: { callback: formatYAxisLabel }
