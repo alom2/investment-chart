@@ -18,5 +18,6 @@ export const Card = styled.div({
   position: 'relative',
   top: -50,
   opacity: 0,
+  borderRadius: 5,
   animation: `${show} ease-out .7s forwards`
 })
