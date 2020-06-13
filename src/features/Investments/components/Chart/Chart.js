@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2'
 import { useSelector } from 'react-redux'
 import numeral from 'numeral'
 import moment from 'moment'
+import styled from '@emotion/styled'
 
 export const formatTooltipLabel = (item) => {
   return numeral(parseFloat(item.value)).format('$ 0,0.00')
@@ -57,6 +58,11 @@ export const formatData = (chartData) => ({
   }]
 })
 
+const Container = styled.div({
+  padding: 20,
+  backgroundColor: '#fff'
+})
+
 export const Chart = () => {
   const chartData = useSelector(state => state.investments.chartData)
   if (!chartData || !chartData.dates) {
@@ -64,10 +70,12 @@ export const Chart = () => {
   }
 
   return (
-    <Line
-      testId='investmentChart'
-      options={options}
-      data={formatData(chartData)}
-    />
+    <Container>
+      <Line
+        testId='investmentChart'
+        options={options}
+        data={formatData(chartData)}
+      />
+    </Container>
   )
 }

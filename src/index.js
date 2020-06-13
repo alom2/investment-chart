@@ -20,11 +20,13 @@ const globalStyles = css({
   body: {
     margin: 0,
     backgroundColor: '#1c2124',
-    fontFamily: 'Quicksand',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: '100vh'
+  },
+  '*': {
+    fontFamily: 'Quicksand'
   }
 })
 

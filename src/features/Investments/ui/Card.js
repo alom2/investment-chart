@@ -13,11 +13,13 @@ const show = keyframes({
 })
 
 export const Card = styled.div({
-  backgroundColor: '#fff',
-  padding: 20,
   position: 'relative',
   top: -50,
   opacity: 0,
   borderRadius: 5,
+  display: 'flex',
+  flex: 1,
+  width: 800,
+  flexDirection: 'column',
   animation: `${show} ease-out .7s forwards`
 })

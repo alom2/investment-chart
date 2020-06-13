@@ -10,12 +10,12 @@ const Container = styled.header({
   backgroundColor: '#eff2f5',
   color: '#597183',
   fontSize: 18,
-  marginBottom: 40,
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   paddingLeft: 20,
-  borderRadius: 5
+  borderTopLeftRadius: 5,
+  borderTopRightRadius: 5
 })
 
 const Period = styled.strong({

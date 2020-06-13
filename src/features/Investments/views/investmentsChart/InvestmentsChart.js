@@ -1,17 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import styled from '@emotion/styled'
 import { fetchInvestmentsData } from '../../redux'
-import { Card } from '../../../../sharedComponents'
 import { Chart, PeriodHeader } from '../../components'
-
-const InvestmentsCard = styled(Card)({
-  display: 'flex',
-  flex: 1,
-  width: '100%',
-  maxWidth: 900,
-  flexDirection: 'column'
-})
+import { Card, Footer } from '../../ui'
 
 export const InvestmentsChart = () => {
   const dispatch = useDispatch()
@@ -21,9 +12,12 @@ export const InvestmentsChart = () => {
   }, [dispatch])
 
   return (
-    <InvestmentsCard>
-      <PeriodHeader period='abacate' />
+    <Card>
+      <PeriodHeader />
       <Chart />
-    </InvestmentsCard>
+      <Footer>
+        Use as setas para controlar o período de exibição do gráfico
+      </Footer>
+    </Card>
   )
 }

@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { useDispatch, useSelector } from 'react-redux'
 import { setMothsInPastByIndex } from '../../redux/actions'
 import { SelectorButton } from './SelectorButton'
-import { SelectorOptionsContainer, SelectorOption } from './SelectorOptions'
+import { SelectorOptionsContainer } from './SelectorOptionsContainer'
+import { SelectorOption } from './SelectorOption'
 import { PERIODS_IN_PAST_MONTHS } from '../../constants/chart'
 
 const Container = styled.div({
@@ -17,20 +18,51 @@ export const PeriodSelector = () => {
   const dispatch = useDispatch()
 
   const toggleIsOpen = () => setIsOpen(!isOpen)
-  const close = (event) => {
+
+  const closeFromOutside = (event) => {
     if (containerRef.current && !containerRef.current.contains(event.target)) {
       setIsOpen(false)
     }
   }
 
-  const setPeriodByIndex = (index) => {
+  const setPeriodByIndex = useCallback((index) => {
     dispatch(setMothsInPastByIndex(index))
-    setIsOpen(false)
-  }
+  }, [dispatch])
+
+  const goToPrevPeriod = useCallback(() => {
+    if (monthsInPastIndex > 0) {
+      setPeriodByIndex(monthsInPastIndex - 1)
+    }
+  }, [monthsInPastIndex, setPeriodByIndex])
+
+  const goToNextPeriod = useCallback(() => {
+    if (monthsInPastIndex < PERIODS_IN_PAST_MONTHS.length - 1) {
+      setPeriodByIndex(monthsInPastIndex + 1)
+    }
+  }, [monthsInPastIndex, setPeriodByIndex])
+
+  const changePeriodWithKeyboard = useCallback((event) => {
+    const keyCode = event.which
+    if (keyCode === 38 || keyCode === 37) {
+      goToPrevPeriod()
+    }
+    if (keyCode === 39 || keyCode === 40) {
+      goToNextPeriod()
+    }
+  }, [goToNextPeriod, goToPrevPeriod])
 
   useEffect(() => {
-    window.addEventListener('mousedown', close)
-    return () => window.removeEventListener('mousedown', close)
+    window.addEventListener('keydown', changePeriodWithKeyboard)
+    return () => {
+      window.removeEventListener('keydown', changePeriodWithKeyboard)
+    }
+  }, [changePeriodWithKeyboard])
+
+  useEffect(() => {
+    window.addEventListener('mousedown', closeFromOutside)
+    return () => {
+      window.removeEventListener('mousedown', closeFromOutside)
+    }
   }, [])
 
   return (

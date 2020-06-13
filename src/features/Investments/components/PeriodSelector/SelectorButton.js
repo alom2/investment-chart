@@ -1,13 +1,5 @@
 import styled from '@emotion/styled'
-
-export const BaseButton = styled.button({
-  border: 0,
-  fontFamily: 'Quicksand',
-  color: '#597183',
-  transition: 'background-color .3s',
-  cursor: 'pointer',
-  outline: 'none'
-})
+import { BaseButton } from '../../ui'
 
 export const SelectorButton = styled(BaseButton)(({ isOpen }) => ({
   backgroundColor: isOpen ? '#c8d3dc' : '#e1e7ec',

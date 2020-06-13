@@ -17,9 +17,9 @@ export function* fetchInvestmentsDataWorker () {
     dates: [],
     values: []
   })
-  const monthsInPastIndex = localStorage.getItem(MONTHS_IN_PAST_STORAGE_KEY) || '0'
+  const monthsInPastIndex = localStorage.getItem(MONTHS_IN_PAST_STORAGE_KEY) || 0
   yield put(setInvestmentsData(chartData))
-  yield put(setMothsInPastByIndex(monthsInPastIndex))
+  yield put(setMothsInPastByIndex(Number(monthsInPastIndex)))
 }
 
 export function* setMonthsInPastWorker () {
