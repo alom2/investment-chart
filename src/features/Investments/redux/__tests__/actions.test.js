@@ -1,5 +1,5 @@
-import * as InvestmentsActions from './actions'
-import * as InvestmentsTypes from './types'
+import * as InvestmentsActions from '../actions'
+import * as InvestmentsTypes from '../types'
 
 describe('InvestmentsActions' , () => {
   it('fetchInvestmentsData', () => {

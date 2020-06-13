@@ -5,7 +5,7 @@ import { setMothsInPastByIndex } from '../../redux/actions'
 import { SelectorButton } from './SelectorButton'
 import { SelectorOptionsContainer } from './SelectorOptionsContainer'
 import { SelectorOption } from './SelectorOption'
-import { PERIODS_IN_PAST_MONTHS } from '../../constants/chart'
+import { PERIODS_IN_PAST_MONTHS } from '../../constants/periods'
 
 const Container = styled.div({
   position: 'relative'

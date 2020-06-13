@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 import { PeriodSelector } from '../PeriodSelector'
 import { useSelector } from 'react-redux'
-import { PERIODS_IN_PAST_MONTHS } from '../../constants/chart'
+import { PERIODS_IN_PAST_MONTHS } from '../../constants/periods'
 
 const Container = styled.header({
   backgroundColor: '#eff2f5',

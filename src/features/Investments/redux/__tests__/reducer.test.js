@@ -1,5 +1,5 @@
-import * as InvestmentsActions from './actions'
-import { investmentsReducer, initialState } from './reducer'
+import * as InvestmentsActions from '../actions'
+import { investmentsReducer, initialState } from '../reducer'
 
 describe('InvestmentsReducer' , () => {
   it('initialState', () => {

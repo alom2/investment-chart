@@ -1,4 +1,4 @@
-import { fetchInvestmentsDataFromGist } from './investmentDataService'
+import { fetchInvestmentsDataFromGist } from '../investmentDataService'
 
 describe('InvestmentDataService', () => {
 

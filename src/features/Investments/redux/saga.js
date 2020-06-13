@@ -4,7 +4,7 @@ import * as InvestmentsTypes from './types'
 import { fetchInvestmentsDataFromGist } from '../services/investmentDataService'
 import { setInvestmentsData, setMothsInPastByIndex, setInvestmentsChartData } from './actions'
 import { MONTHS_IN_PAST_STORAGE_KEY } from '../constants/localstorage'
-import { PERIODS_IN_PAST_MONTHS } from '../constants/chart'
+import { PERIODS_IN_PAST_MONTHS } from '../constants/periods'
 
 export function* fetchInvestmentsDataWorker () {
   const resp = yield call(fetchInvestmentsDataFromGist)
@@ -34,7 +34,7 @@ export function* setMonthsInPastWorker () {
   const finalIndex = data.dates.length - 1
 
   // como só vai ter dados até janeiro, coloquei pra exibir do ultimo dado pra trás
-  // descomentar a linha de baixar pra usar a data atual como inicial
+  // descomentar a linha de baixo pra usar a data atual como inicial
   // const startDate = moment()
   const startDate = moment(data.dates[finalIndex])
   const chartData = {
