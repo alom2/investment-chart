@@ -2,10 +2,9 @@ import React, { useState, useRef, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { useDispatch, useSelector } from 'react-redux'
 import { setMothsInPastByIndex } from '../../redux/actions'
-import { SelectorButton } from './SelectorButton'
-import { SelectorOptionsContainer } from './SelectorOptionsContainer'
-import { SelectorOption } from './SelectorOption'
+import { SelectorButton, SelectorOptionsContainer, SelectorOption } from './ui'
 import { PERIODS_IN_PAST_MONTHS } from '../../constants/periods'
+import { getLastIndex } from '../../../../utils/array'
 
 const Container = styled.div({
   position: 'relative'
@@ -36,7 +35,7 @@ export const PeriodSelector = () => {
   }, [monthsInPastIndex, setPeriodByIndex])
 
   const goToNextPeriod = useCallback(() => {
-    if (monthsInPastIndex < PERIODS_IN_PAST_MONTHS.length - 1) {
+    if (monthsInPastIndex < getLastIndex(PERIODS_IN_PAST_MONTHS)) {
       setPeriodByIndex(monthsInPastIndex + 1)
     }
   }, [monthsInPastIndex, setPeriodByIndex])

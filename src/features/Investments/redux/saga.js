@@ -5,6 +5,7 @@ import { fetchInvestmentsDataFromGist } from '../services/investmentDataService'
 import { setInvestmentsData, setMothsInPastByIndex, setInvestmentsChartData } from './actions'
 import { MONTHS_IN_PAST_STORAGE_KEY } from '../constants/localstorage'
 import { PERIODS_IN_PAST_MONTHS } from '../constants/periods'
+import { getLastIndex } from '../../../utils/array'
 
 export function* fetchInvestmentsDataWorker () {
   const resp = yield call(fetchInvestmentsDataFromGist)
@@ -31,7 +32,7 @@ export function* setMonthsInPastWorker () {
     yield put(setInvestmentsChartData(data))
     return
   }
-  const finalIndex = data.dates.length - 1
+  const finalIndex = getLastIndex(data.dates)
 
   // como só vai ter dados até janeiro, coloquei pra exibir do ultimo dado pra trás
   // descomentar a linha de baixo pra usar a data atual como inicial

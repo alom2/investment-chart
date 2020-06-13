@@ -4,9 +4,12 @@ export const fetchInvestmentsData = () => ({
   type: InvestmentsTypes.FETCH_INVESTMENTS_DATA
 })
 
-export const setInvestmentsData = (investmentsData) => ({
+export const setInvestmentsData = ({ dates, values }) => ({
   type: InvestmentsTypes.SET_INVESTMENTS_DATA,
-  payload: investmentsData
+  payload: {
+    dates,
+    values
+  }
 })
 
 export const setMothsInPastByIndex = (index) => ({
@@ -14,7 +17,10 @@ export const setMothsInPastByIndex = (index) => ({
   payload: index
 })
 
-export const setInvestmentsChartData = (chartData) => ({
+export const setInvestmentsChartData = ({ dates, values }) => ({
   type: InvestmentsTypes.SET_INVESTMENTS_CHART_DATA,
-  payload: chartData
+  payload: {
+    dates,
+    values
+  }
 })

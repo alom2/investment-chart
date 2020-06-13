@@ -11,7 +11,7 @@ const mockStore = configureStore(middlewares)
 describe('InvestmentsChart', () => {
   it('should call api when render', () => {
     const store = mockStore({
-      investments: { charData: initialState }
+      investments: initialState
     })
     render(
       <Provider store={store}>

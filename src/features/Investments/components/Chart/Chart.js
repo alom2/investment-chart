@@ -14,7 +14,7 @@ export const formatYAxisLabel = (value) => {
   if (numericValue >= 1000) {
     return numeral(numericValue).format('$ 0a')
   }
-  return numericValue
+  return numeral(numericValue).format('$ 0[.]00')
 }
 
 export const formatXAxisLabel = (value) => {

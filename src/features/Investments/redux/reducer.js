@@ -1,4 +1,5 @@
 import * as InvestmentsTypes from './types'
+import { ALL_TIME_INDEX } from '../constants/periods'
 
 const baseChartData = {
   dates: [],
@@ -7,7 +8,7 @@ const baseChartData = {
 
 export const initialState = {
   data: baseChartData,
-  monthsInPastIndex: 0,
+  monthsInPastIndex: ALL_TIME_INDEX,
   chartData: baseChartData
 }
 

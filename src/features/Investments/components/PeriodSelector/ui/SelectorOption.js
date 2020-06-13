@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { BaseButton } from '../../ui'
+import { BaseButton } from '../../../ui'
 
 export const SelectorOption = styled(BaseButton)(({ active }) => ({
   fontSize: 16,
