@@ -1,4 +1,4 @@
-# Grafico de investimentos
+# Gráfico de investimentos
 
 Um gráfico de investimentos com cores inspiradas em um site de investimentos, possui um controle de períodos no header mas que pode ser controlado pelas setas do teclado.
 
