@@ -31,6 +31,9 @@ export const options = {
   elements: {
     line: { tension: 0 }
   },
+  animation: {
+    duration: 0
+  },
   tooltips: {
     callbacks: {
       label: formatTooltipLabel,
@@ -40,11 +43,11 @@ export const options = {
   scales: {
     xAxes: [{
       gridLines: { display: false },
-      ticks: { 
+      ticks: {
         callback: formatXAxisLabel,
         autoSkip: true,
         maxTicksLimit: 1,
-        maxRotation: 0,
+        maxRotation: 0
       }
     }],
     yAxes: [{
@@ -57,6 +60,7 @@ export const formatData = (chartData) => ({
   labels: chartData.dates,
   datasets: [{
     label: 'Valor',
+    pointBackgroundColor: 'rgb(21, 156, 228)',
     data: chartData.values,
     backgroundColor: 'rgba(21, 156, 228, .7)',
     borderColor: 'rgb(21, 156, 228)'
