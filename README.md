@@ -13,7 +13,7 @@ Um gráfico de investimentos com cores inspiradas em um site de investimentos, p
 ## Scripts disponíveis
 
 - npm start
-- npm run test
+- npm test
 - npm run coverage
 
 ## Estrutura de pastas
