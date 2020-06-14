@@ -1,48 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Grafico de investimentos
 
-## Available Scripts
+Um gráfico de investimentos com cores inspiradas em um site de investimentos, possui um controle de períodos no header mas que pode ser controlado pelas setas do teclado.
 
-In the project directory, you can run:
+### Tecnologias
 
-### `npm start`
+- React
+- Redux
+- Redux-saga
+- EmotionJs
+- FontAwesome
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Scripts disponíveis
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- npm start
+- npm run test
+- npm run coverage
 
-### `npm test`
+## Estrutura de pastas
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Todos os arquivos relacionados a esse modulo estão dentro da pasta `src` o padrão seguido foi:
 
-## Learn More
+#### `redux/`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Na pasta que fica na raiz do `src`, estão todos os combines do redux nescessários. Nos outros casos ele segue o padrão de organização do **reducks**, os testes ficam na pasta `__tests__`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+#### `utils/`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+São funções genéricas que ajudam na escrita do código.
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### `features/`
 
-### Making a Progressive Web App
+Modulos da aplicação por exemplo, o modulo de `Login` teria as telas de `Login`, `ForgotPassword` e outras coisas exclusivas do modulo.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+#### `ui/`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Todos os componentes que são somente visuais criados com o emotion, e que não precisam de testes pois são `divs` ou outras tags com estilo e repassando tudo que recebem(comportamento que o emotion se encarrega). Essa pasta possuí um arquivo `index.js` para exporta todos os componentes.
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+#### `components/`
 
-### `npm run build` fails to minify
+São componentes com alguma lógica seja de estado ou manipulação da `store`. Componentes são organizados por pastas com seus testes dentro delas e um arquivo `index.js` para exporta somento o componente, podendo ter uma pasta `ui` exclusiva para um componente.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+#### `views/`
+
+Todas as paginas do sistema. são organizadas como os `components`.
+
+
+#### `constants/`
+
+Todas as constantes ficam dentro dessa pasta que pode ser exclusiva de um modulo estando dentro de uma `feature`.
+
+
+#### `__tests__/`
+
+Pasta onde ficam alguns testes separados de suas unidades
+
+
+
