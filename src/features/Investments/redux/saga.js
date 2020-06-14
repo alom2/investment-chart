@@ -38,10 +38,17 @@ export function* setMonthsInPastWorker () {
   // descomentar a linha de baixo pra usar a data atual como inicial
   // const startDate = moment()
   const startDate = moment(data.dates[finalIndex])
+
+  if (startDate.diff(data.dates[0], 'months') < monthsNumber) {
+    yield put(setInvestmentsChartData(data))
+    return
+  }
+
   const chartData = {
     dates: [],
     values: []
   }
+
   for (let i = finalIndex; i >= 0; i--) {
     const currentIndexDate = moment(data.dates[i])
     if (startDate.diff(currentIndexDate, 'months') > monthsNumber) {

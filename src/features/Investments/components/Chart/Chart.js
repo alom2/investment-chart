@@ -40,7 +40,12 @@ export const options = {
   scales: {
     xAxes: [{
       gridLines: { display: false },
-      ticks: { callback: formatXAxisLabel }
+      ticks: { 
+        callback: formatXAxisLabel,
+        autoSkip: true,
+        maxTicksLimit: 1,
+        maxRotation: 0,
+      }
     }],
     yAxes: [{
       ticks: { callback: formatYAxisLabel }
