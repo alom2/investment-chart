@@ -22,12 +22,12 @@ Todos os arquivos relacionados a esse modulo estão dentro da pasta `src` o padr
 
 #### `redux/`
 
-Na pasta que fica na raiz do `src`, estão todos os combines do redux nescessários. Nos outros casos ele segue o padrão de organização do **reducks**, os testes ficam na pasta `__tests__`
+Na pasta que fica na raiz do `src`, estão todos os combines do redux nescessários. Nos outros casos ele segue o padrão de organização do **reducks**, os testes ficam na pasta `__tests__`.
 
 
 #### `utils/`
 
-São funções genéricas que ajudam na escrita do código.
+São funções genéricas que ajudam na escrita do código, os testes ficam na pasta `__tests__`.
 
 
 #### `features/`
@@ -54,10 +54,12 @@ Todas as paginas do sistema. são organizadas como os `components`.
 
 Todas as constantes ficam dentro dessa pasta que pode ser exclusiva de um modulo estando dentro de uma `feature`.
 
+#### `services/`
+
+Pasta onde ficam os serviços que fazem chamadas de api, os testes ficam na pasta `__tests__`.
 
 #### `__tests__/`
 
 Pasta onde ficam alguns testes separados de suas unidades
-
 
 
